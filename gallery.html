@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Антей || Спортивний комлекс</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="static/logo.jpeg" alt="Logo">
+      </a>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Головна</a>
+      <a href="services.html">Послуги</a>
+      <a href="team.html">Тренери</a>
+      <a href="gallery.html">Фото</a>
+      <a href="prices.html">Ціни</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+    <div></div>
+
+    <button class="burger" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <section class="info paddingTop-100">
+    <h2>Фото комплексу</h2>
+    <div class="gallery">
+      <img src="static/logo.jpeg" alt="лого 1">
+      <img src="static/1.png" alt="теніс 2">
+      <img src="static/logo.jpeg" alt="лого 3">
+      <img src="static/1.png" alt="теніс 4">
+    </div>
+  </section>
+
+  <div class="modal" id="modal">
+    <button class="close" onclick="closeModal()">×</button>
+    <button class="prev" onclick="prevImage()">←</button>
+    <img id="modal-img" src="" alt="Велике фото">
+    <button class="next" onclick="nextImage()">→</button>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.gallery img');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        modalImg.src = img.src;
+        modal.style.display = 'flex';
+      });
+    });
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImg.src = images[currentIndex].src;
+    }
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImg.src = images[currentIndex].src;
+    }
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>
