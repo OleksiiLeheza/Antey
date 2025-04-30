@@ -259,7 +259,6 @@ a {
     margin: 0 auto;
 }
 
-
 .team-member {
     background-color: #1f2b40;
     border-radius: 12px;
@@ -747,11 +746,6 @@ svg {
         padding-top: 15px;
     }
 
-    .gallery img {
-        width: 80vw;
-        height: 80vw;
-    }
-
     .team-member img {
         width: 70vw;
         height: 70vw;
@@ -787,6 +781,7 @@ svg {
 }
 
 @media(max-width: 540px) {
+
     .team-member img {
         width: 55vw;
         height: 50vw;
